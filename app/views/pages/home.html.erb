@@ -1,2 +1,77 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<!-- BANNER -->
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80);">
+  <div class="container-search">
+    <div class="search">
+      <h1>Encontrá tu auto ideal</h1>
+      <p>¡Descubrí cómo alquilar un auto de la forma más fácil y rápida!</p>
+      <div class="search-form">
+        <div class="row g-3">
+          <div class="col">
+            <label for="desde" class="form-label">Desde:</label>
+            <input type="date" class="form-control" id="desde" name="desde" aria-label="Desde">
+          </div>
+          <div class="col">
+            <label for="hasta" class="form-label">Hasta:</label>
+            <input type="date" class="form-control" id="hasta" name="hasta" aria-label="Hasta">
+          </div>
+        </div>
+        <div class="mb-3">
+          <select class="form-select form-select-sm w-100 mt-3 mb-1" aria-label="Default select example" id="select-category">
+            <option selected>Selecciona una categoría</option>
+            <option value="1">Auto</option>
+            <option value="2">Camioneta</option>
+            <option value="3">Moto</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-flat">Buscar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CARDS -->
+<div class="container">
+  <h1 class="mt-4 text-center">Mirá las mejores opciones que tenemos para vos</h1>
+  <p class="text-center mt-2 mb-4">Más de 1.000 evaluaciones de usuarios, con una valoración media de 4.5 de 5 estrellas.</p>
+  <div class="row">
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card-trip">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+        <div class="card-trip-infos">
+          <div>
+            <h2>Vehículo 1</h2>
+            <p>Descripción corrrespondiente al vehículo número 1</p>
+          </div>
+          <h2 class="card-trip-pricing">£99.99</h2>
+          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card-trip">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+        <div class="card-trip-infos">
+          <div>
+            <h2>Vehículo 2</h2>
+            <p>Descripción corrrespondiente al vehículo número 2</p>
+          </div>
+          <h2 class="card-trip-pricing">£99.99</h2>
+          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card-trip">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+        <div class="card-trip-infos">
+          <div>
+            <h2>Vehículo 3</h2>
+            <p>Descripción corrrespondiente al vehículo número 3</p>
+          </div>
+          <h2 class="card-trip-pricing">£99.99</h2>
+          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
