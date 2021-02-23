@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_23_150227) do
+ActiveRecord::Schema.define(version: 2021_02_23_175602) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 2021_02_23_150227) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "price"
     t.index ["user_id"], name: "index_automobiles_on_user_id"
   end
 
@@ -55,24 +56,11 @@ ActiveRecord::Schema.define(version: 2021_02_23_150227) do
     t.date "starting_date"
     t.date "finish_date"
     t.bigint "user_id", null: false
-    t.bigint "offer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["offer_id"], name: "index_bookings_on_offer_id"
-    t.index ["user_id"], name: "index_bookings_on_user_id"
-  end
-
-  create_table "offers", force: :cascade do |t|
-    t.boolean "publish"
-    t.integer "price"
-    t.date "starting_date"
-    t.date "finish_date"
-    t.bigint "user_id", null: false
     t.bigint "automobile_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["automobile_id"], name: "index_offers_on_automobile_id"
-    t.index ["user_id"], name: "index_offers_on_user_id"
+    t.index ["automobile_id"], name: "index_bookings_on_automobile_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -104,10 +92,8 @@ ActiveRecord::Schema.define(version: 2021_02_23_150227) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "automobiles", "users"
-  add_foreign_key "bookings", "offers"
+  add_foreign_key "bookings", "automobiles"
   add_foreign_key "bookings", "users"
-  add_foreign_key "offers", "automobiles"
-  add_foreign_key "offers", "users"
   add_foreign_key "reviews", "bookings"
   add_foreign_key "reviews", "users"
 end
