@@ -1,11 +1,13 @@
 .footer {
   background: #F4F4F4;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 40px;
+  height: 2.5rem;
   margin-top: 10px;
   padding: 0px 50px;
+  position: absolute;
   bottom: 0;
   color: rgba(0,0,0,0.3);
 }
@@ -34,4 +36,8 @@
 
 .footer-social-media a:hover {
   opacity: 1;
+}
+
+.footer-owners {
+  font-size: 13px;
 }
