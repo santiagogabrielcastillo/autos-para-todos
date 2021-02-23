@@ -1,5 +1,4 @@
 class AutomobilesController < ApplicationController
-
   def new
     @automobile = Automobile.new
   end
