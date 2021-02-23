@@ -1,4 +1,7 @@
 class AutomobilesController < ApplicationController
+  def index
+    @automobiles = Automobile.all
+  end
 
   def new
     @automobile = Automobile.new
