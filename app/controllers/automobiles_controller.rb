@@ -13,6 +13,16 @@ class AutomobilesController < ApplicationController
     end
   end
 
+  def edit
+    @automobile = Automobile.find(params[:id])
+  end
+
+  def update
+    @automobile = Automobile.find(params[:id])
+    @automobile.update(automobile_params)
+    redirect_to automobile_path(@automobile)
+  end
+
   private
 
   def automobile_params
