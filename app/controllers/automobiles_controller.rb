@@ -1,8 +1,7 @@
 class AutomobilesController < ApplicationController
-<<<<<<< HEAD
   def index
     @automobiles = Automobile.all
-=======
+  end
 
   def new
     @automobile = Automobile.new
@@ -22,6 +21,5 @@ class AutomobilesController < ApplicationController
 
   def automobile_params
     params.require(:automobile).permit(:brand, :model, :year, :km, :category, :price, :photo)
->>>>>>> master
   end
 end
