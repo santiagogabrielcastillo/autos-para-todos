@@ -11,6 +11,13 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
+        <% if current_user.automobiles.empty? %>
+        <li class="nav-item active">
+          <%= link_to "Rent your first car", new_automobile_path, class: "nav-link" %>
+        </li>
+        <% else %>
+          <%# <%= link_to "See you cars", new_automobile_path, class: "nav-link" %> %>
+        <% end %>
         <li class="nav-item active">
           <%= link_to "Home", root_path, class: "nav-link" %>
         </li>
