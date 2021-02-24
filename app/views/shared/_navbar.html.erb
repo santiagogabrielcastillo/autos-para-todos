@@ -7,6 +7,9 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
+  <div id="navbar-title">
+    <%= link_to "Autos para todos", root_path, class: "nav-link" %>
+  </div>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
@@ -18,9 +21,6 @@
         <% else %>
           <%# <%= link_to "See you cars", new_automobile_path, class: "nav-link" %> %>
         <% end %>
-        <li class="nav-item active">
-          <%= link_to "Home", root_path, class: "nav-link" %>
-        </li>
         <li class="nav-item dropdown">
           <% if current_user.photo.attached? %>
             <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
