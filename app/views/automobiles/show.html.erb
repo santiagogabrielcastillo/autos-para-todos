@@ -1,7 +1,6 @@
 
 <div class="container">
-    <!-- title Section -->
-  <div class="card-trip card-trip-infos mb-3 rounded">
+  <div class="card-trip card-trip-infos my-3 rounded">
     <div class="show-header">
       <div class="d-flex align-items-center" id="car-name">
         <%= @automobile.model %> <%= @automobile.brand %>
@@ -34,8 +33,6 @@
   </div>
   <div class="mt-4 text-center">
     <%= link_to "volver a lista", automobiles_path, class: "btn btn-primary" %> 
-    <%= link_to "reservar", new_automobile_booking_path(@automobile), class: "btn btn-primary" %> 
-    <%= link_to "tus reservas", automobiles_path, class: "btn btn-primary" %> 
-    <%# link a booking %>
+    <%= link_to "reservar", new_automobile_booking_path(@automobile), class: "btn btn-primary" %>
   </div>
 </div>
