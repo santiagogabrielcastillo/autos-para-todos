@@ -1,32 +1,32 @@
 <div class="container text-center">
   <h1 class="mt-4">My bookings</h1>
-    <% @bookings.each do |booking| %>
-    <div class="container d-flex justify-content-center">
-      <div class="row my-3">
-        <div class="col-12">
-          <div class="card-booking">
-            <%= cl_image_tag booking.automobile.photo.key, crop: :fill %>
-            <h2 class="py-3 bg-secondary"><%= booking.automobile.brand %> <%= booking.automobile.model %></h2>
-            <div class="card-booking-infos">
-              <div class="automobile-info">
-                <p>Año: <%= booking.automobile.year %></p>
-                <p><%= booking.automobile.km %> km</p>
-              </div>
-              <div class="booking-info">
-                <p>Estado de la reserva: <%= booking.status %></p>
-                <p>Pagada: <%= booking.paid ? "Si" : "No" %></p>
-                <p>Precio total: <%= booking.total_price %></p>
-              </div>
-              <div class="fechas">
-                <p>Desde: <%= booking.starting_date %></p>
-                <p>Hasta: <%= booking.finish_date %></p>
-              </div>  
+  <div class="d-flex justify-content-center">
+    <div class="row my-3">
+      <div class="col-12">
+      <% @bookings.each do |booking| %>
+        <div class="card-booking my-4">
+          <%= cl_image_tag booking.automobile.photo.key, height: 250 %>
+          <h2 class="py-3 bg-secondary"><%= booking.automobile.brand %> <%= booking.automobile.model %></h2>
+          <div class="card-booking-infos">
+            <div class="automobile-info">
+              <p>Año: <%= booking.automobile.year %></p>
+              <p><%= booking.automobile.km %> km</p>
             </div>
+            <div class="booking-info">
+              <p>Estado de la reserva: <%= booking.status %></p>
+              <p>Pagada: <%= booking.paid ? "Si" : "No" %></p>
+              <p>Precio total: <%= booking.total_price %></p>
+            </div>
+            <div class="fechas">
+              <p>Desde: <%= booking.starting_date %></p>
+              <p>Hasta: <%= booking.finish_date %></p>
+            </div>  
           </div>
         </div>
+        <% end %>
       </div>
     </div>
-   <% end %>
+  </div>
 </div>
 
 
