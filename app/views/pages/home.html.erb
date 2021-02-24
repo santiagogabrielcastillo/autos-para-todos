@@ -23,7 +23,7 @@
             <option value="3">Moto</option>
           </select>
         </div>
-        <button type="submit" class="btn btn-flat">Buscar</button>
+        <%= link_to 'Buscar', automobiles_path, class: 'btn btn-flat' %>
       </div>
     </div>
   </div>
@@ -34,44 +34,22 @@
   <h1 class="mt-4 text-center">Mirá las mejores opciones que tenemos para vos</h1>
   <p class="text-center mt-2 mb-4">Más de 1.000 evaluaciones de usuarios, con una valoración media de 4.5 de 5 estrellas.</p>
   <div class="row">
+    <% @automobiles.each do |automobile| %>
     <div class="col-12 col-md-6 col-lg-4">
       <div class="card-trip">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+        <%= cl_image_tag automobile.photo.key %>
         <div class="card-trip-infos">
           <div>
-            <h2>Vehículo 1</h2>
+            <%= link_to automobile_path(automobile) do %>
+            <h2><%= automobile.brand %> <%= automobile.model %></h2>
+            <% end %>
             <p>Descripción corrrespondiente al vehículo número 1</p>
           </div>
-          <h2 class="card-trip-pricing">£99.99</h2>
-          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+          <h2 class="card-trip-pricing">$<%= automobile.price %></h2>
+          <%= cl_image_tag automobile.user.photo.key, class: 'card-trip-user avatar-bordered' %>
         </div>
       </div>
     </div>
-    <div class="col-12 col-md-6 col-lg-4">
-      <div class="card-trip">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-        <div class="card-trip-infos">
-          <div>
-            <h2>Vehículo 2</h2>
-            <p>Descripción corrrespondiente al vehículo número 2</p>
-          </div>
-          <h2 class="card-trip-pricing">£99.99</h2>
-          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-        </div>
-      </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-4">
-      <div class="card-trip">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-        <div class="card-trip-infos">
-          <div>
-            <h2>Vehículo 3</h2>
-            <p>Descripción corrrespondiente al vehículo número 3</p>
-          </div>
-          <h2 class="card-trip-pricing">£99.99</h2>
-          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-        </div>
-      </div>
-    </div>
+    <% end %>
   </div>
 </div>
