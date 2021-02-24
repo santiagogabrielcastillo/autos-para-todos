@@ -2,6 +2,13 @@ class AutomobilesController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
   def index
     @automobiles = Automobile.all
+
+    @markers = @automobiles.geocoded.map do |automobile|
+      {
+        lat: automobile.latitude,
+        lng: automobile.longitude
+      }
+    end
   end
 
   def show

@@ -3,6 +3,14 @@
 <div class="container">
   <h1 class="mt-4 text-left">Los autos que siempre quisiste, al mejor precio</h1>
   <p class="text-left mt-2 mb-4">Más de 1.000 evaluaciones de usuarios, con una valoración media de 4.5 de 5 estrellas.</p>
+  <hr>
+  <div id="map"
+     style="width: 80%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+  <br>
+  <hr>
   <div class="row">
     <% @automobiles.each do |automobile| %>
     <div class="col-12 col-md-6 col-lg-4">
