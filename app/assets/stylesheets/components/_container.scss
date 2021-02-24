@@ -9,11 +9,13 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   
 }
-.title {
+.show-header {
+  display: flex;
+  justify-content: space-between;
   height: 30px;
-  align-items: center;
   margin: 20px
 }
+
 #car-info-text {
   margin: 15px;
   opacity: 0.7; 
@@ -27,6 +29,15 @@
 
 .title-user-data {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   color: rgba(0,0,0,0.7);
+}
+
+#car-name {
+  font-weight: 700;
+  font-size: xx-large;
+}
+
+#owner-name {
+  margin-right: 5px;
 }
