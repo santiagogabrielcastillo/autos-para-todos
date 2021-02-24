@@ -1,0 +1,43 @@
+.card-booking {
+  overflow: hidden;
+  width: 70%;
+  height: 400px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-booking > img {
+  height: 250px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-booking h2 {
+  font-size: 25px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-booking p {
+  font-size: 14px;
+  margin: 0;
+}
+
+
+.card-booking .card-booking-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.automobile-info
+.fechas
+.booking-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
