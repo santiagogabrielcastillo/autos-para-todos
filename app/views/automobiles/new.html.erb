@@ -1,14 +1,16 @@
 <div class="container">
-  <%= simple_form_for @automobile do |f| %>
-  <%= f.input :model %>
-  <%= f.input :brand %>
-  <%= f.input :km %>
-  <%= f.input :year %>
-  <%= f.input :price %>
-  <%= f.input :category, collection: CATEGORIES %>
-  <%= f.input :photo, as: :file %>
-  <%= f.button :submit %>
-<% end %>
-
-<%= link_to "Go back", root_path %>
+<div>
+    <%= simple_form_for @automobile do |f| %>
+    <%= f.input :model %>
+    <%= f.input :brand %>
+    <%= f.input :km %>
+    <%= f.input :year %>
+    <%= f.input :price %>
+    <%= f.input :address %>
+    <%= f.input :category, collection: CATEGORIES %>
+    <%= f.input :photo, as: :file %>
+    <%= f.button :submit %>
+  <% end %>
+</div>
+<%= link_to "Go back", root_path, class: "btn btn-primary" %>
 </div>
