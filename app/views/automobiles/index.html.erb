@@ -5,15 +5,17 @@
   <div class="row">
     <% @automobiles.each do |automobile| %>
     <div class="col-12 col-md-6 col-lg-4">
-      <div class="card-trip">
+      <div class="card-automobile">
         <%= cl_image_tag automobile.photo.key %>
-        <div class="card-trip-infos">
+        <h2><%= link_to "#{automobile.brand}, #{automobile.model}", automobile_path(automobile) %></h2>
+        <div class="card-automobile-infos">
           <div>
-            <h2><%= link_to "#{automobile.brand}, #{automobile.model}", automobile_path(automobile) %></h2>
             <p><%= "#{automobile.year} | #{automobile.km} Km" %></p>
           </div>
-          <h2 class="card-trip-pricing"><%= "$#{automobile.price} a day" %></h2>
-          <%= cl_image_tag automobile.user.photo.key, class: "card-trip-user avatar-bordered" %>
+          <div>
+            <h5 class="card-automobile-pricing"><%= "$#{automobile.price} por día!" %></h5>
+          </div>
+          <%= cl_image_tag automobile.user.photo.key, class: "card-automobile-user avatar-bordered" %>
         </div>
       </div>
     </div>
