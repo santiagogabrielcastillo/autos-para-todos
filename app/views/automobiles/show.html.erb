@@ -1,0 +1,39 @@
+
+<div class="container">
+    <!-- title Section -->
+    <div class="card-trip card-trip-infos mb-3 rounded">
+      <div class="title">
+        <h1><%= @automobile.model %> <%= @automobile.brand %></h1>
+      </div>
+      <!-- title section with user info -->
+      <div class="title-user-data mr-4">
+        <h5 class="mr-4">Nombre<%= @automobile.user.full_name %></h5>
+        <%= cl_image_tag @automobile.user.photo.key %>
+      </div>
+  </div>
+    
+   <!-- automobile photo -->
+  <div class="car-info">  
+   <img src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8Y2FyfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt=""> 
+     <!-- automobile info -->
+      <div id="car-info-text">
+        <div>
+          <h5>Modelo:</h5> <%= @automobile.model %>
+          <h5>Marca:</h5> <%= @automobile.brand %>
+          <h5>Categoria:</h5> <%= @automobile.category %>
+          <h5>Año:</h5> <%= @automobile.year %>
+          <h5>Km:</h5>  <%= @automobile.km %>     
+          <%# aca va el form con la info del auto %>
+        </div>
+      </div>
+    </div>
+
+
+      <div class="mt-4 text-center">
+        <%= link_to "volver a lista", automobiles_path, class: "btn btn-primary" %> 
+        <%= link_to "reservar", new_automobile_booking_path(@automobile), class: "btn btn-primary" %> 
+        <%= link_to "tus reservas", automobiles_path, class: "btn btn-primary" %> 
+        <%# link a booking %>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+
+.car-info {
+  height: 500px;
+  display: flex;
+  justify-content: flex-start;
+  background-color: white;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  
+}
+.title {
+  height: 30px;
+  align-items: center;
+  margin: 20px
+}
+#car-info-text {
+  margin: 15px;
+  opacity: 0.7; 
+}
+
+#car-info-text h5 {
+  margin-top: 7px;
+  opacity: 0.7;
+
+}
+
+.title-user-data {
+  display: flex;
+  justify-content: flex-end;
+  color: rgba(0,0,0,0.7);
+}
