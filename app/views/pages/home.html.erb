@@ -5,25 +5,27 @@
       <h1>Encontrá tu auto ideal</h1>
       <p>¡Descubrí cómo alquilar un auto de la forma más fácil y rápida!</p>
       <div class="search-form">
-        <div class="row g-3">
-          <div class="col">
-            <label for="desde" class="form-label">Desde:</label>
-            <input type="date" class="form-control" id="desde" name="desde" aria-label="Desde">
+        <form class="form-inline">
+          <div class="col-md-2 form-group">
+            <label for="desde" class="form-label">Desde</label>
+            <input type="date" id="desde" name="desde" aria-label="Desde" class="form-control" />
           </div>
-          <div class="col">
-            <label for="hasta" class="form-label">Hasta:</label>
+          <div class="col-md-2 form-group">
+            <label for="hasta" class="form-label">Hasta</label>
             <input type="date" class="form-control" id="hasta" name="hasta" aria-label="Hasta">
           </div>
-        </div>
-        <div class="mb-3">
-          <select class="form-select form-select-sm w-100 mt-3 mb-1" aria-label="Default select example" id="select-category">
-            <option selected>Selecciona una categoría</option>
-            <option value="1">Auto</option>
-            <option value="2">Camioneta</option>
-            <option value="3">Moto</option>
-          </select>
-        </div>
-        <%= link_to 'Buscar', automobiles_path, class: 'btn btn-flat' %>
+          <div class="col-md-2 form-group">
+            <select class="form-select form-select-sm" aria-label="Default select example" id="select-category">
+              <option selected>Selecciona una categoría</option>
+              <option value="1">Auto</option>
+              <option value="2">Camioneta</option>
+              <option value="3">Moto</option>
+            </select>
+          </div>
+          <div class="col-md-2 form-group align-bottom">
+            <%= link_to 'Buscar', automobiles_path, class: 'btn btn-flat' %>
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -43,7 +45,7 @@
             <%= link_to automobile_path(automobile) do %>
             <h2><%= automobile.brand %> <%= automobile.model %></h2>
             <% end %>
-            <p>Descripción corrrespondiente al vehículo número 1</p>
+            <p class="pt-2"><%= "#{automobile.year} | #{automobile.km} Km" %></p>
           </div>
           <h2 class="card-trip-pricing">$<%= automobile.price %></h2>
           <%= cl_image_tag automobile.user.photo.key, class: 'card-trip-user avatar-bordered' %>
