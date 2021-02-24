@@ -1,19 +1,24 @@
 
 <div class="container">
-    <!-- title Section -->
-  <div class="card-trip card-trip-infos mb-3 rounded">
-    <div class="title">
-      <h1><%= @automobile.model %> <%= @automobile.brand %></h1>
-    </div>
-    <!-- title section with user info -->
-    <div class="title-user-data mr-4">
-      <h5 class="mr-4">Nombre<%= @automobile.user.full_name %></h5>
-      <%= cl_image_tag @automobile.user.photo.key %>
-    </div>
+  <div class="card-trip card-trip-infos my-3 rounded">
+    <div class="show-header">
+      <div class="d-flex align-items-center" id="car-name">
+        <%= @automobile.model %> <%= @automobile.brand %>
+      </div>
+      <div class="d-flex align-items-center" id="owner-info">
+        <div id="owner-name"><%= @automobile.user.full_name %></div>
+        <% if @automobile.user.photo.attached? %>
+          <%= cl_image_tag @automobile.user.photo.key, class: "avatar-round" %>
+        <% else %>
+          <img src="app/assets/images/photo_placeholder.png" alt="user" class="avatar-round">
+        <% end %>
+      </div> 
+    </div>    
   </div>
    <!-- automobile photo -->
-  <div class="car-info">  
-    <img src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8Y2FyfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt=""> 
+  <div class="car-info">
+    <%= cl_image_tag @automobile.photo.key %>  
+    <%# <img src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8Y2FyfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">  %>
     <!-- automobile info -->
     <div id="car-info-text">
       <div>
@@ -28,8 +33,6 @@
   </div>
   <div class="mt-4 text-center">
     <%= link_to "volver a lista", automobiles_path, class: "btn btn-primary" %> 
-    <%= link_to "reservar", new_automobile_booking_path(@automobile), class: "btn btn-primary" %> 
-    <%= link_to "tus reservas", automobiles_path, class: "btn btn-primary" %> 
-    <%# link a booking %>
+    <%= link_to "reservar", new_automobile_booking_path(@automobile), class: "btn btn-primary" %>
   </div>
 </div>
