@@ -7,7 +7,7 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-require("lgolia/v3/algoliasearch.min")
+
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -26,14 +26,21 @@ require("lgolia/v3/algoliasearch.min")
 // External imports
 import "bootstrap";
 
+
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+import { initFlatpickr } from "../plugins/flatpickr";
 import { dropdownMenuAppears } from '../components/hover_dropdown_icon';
 import { initMapbox } from '../plugins/init_mapbox';
+import { calculateDates } from "../components/new_bookings";
+import { initAutocomplete }from "../plugins/init_autocomplete";
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  initFlatpickr();
   dropdownMenuAppears();
   initMapbox();
+  calculateDates();
+  initAutocomplete();
 });
