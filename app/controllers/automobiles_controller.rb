@@ -45,6 +45,10 @@ class AutomobilesController < ApplicationController
     redirect_to automobile_path(@automobile)
   end
 
+  def owner
+    @automobiles = Automobile.where(user_id: current_user.id)
+  end
+
   private
 
   def automobile_params
