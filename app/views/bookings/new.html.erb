@@ -5,7 +5,7 @@
       <%= f.input :starting_date, as: :date, html5: true, error: 'Starting date is mandatory, please specify one', class: "form-control" %>
       <%= f.input :finish_date, as: :date, html5: true, error: 'F date is mandatory, please specify one', class: "form-control" %>
     </div>
-    <%= f.submit "Book", class: "btn btn-primary" %>
+    <%= f.submit "Pay now", class: "btn btn-primary" %>
   <% end %>
-    <%= link_to "Volver atras", automobile_path(@automobile), class: "btn btn-primary my-3" %>
+    <%= link_to "Go back to car details", automobile_path(@automobile), class: "btn btn-primary my-3" %>
 </div>
