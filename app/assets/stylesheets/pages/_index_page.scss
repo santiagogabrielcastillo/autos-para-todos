@@ -8,11 +8,13 @@
 }
 
 .card-automobile > img {
+  height: 150px;
   width: 100%;
   object-fit: cover;
 }
 .card-automobile h2 {
-  margin-top: 3px;
+  margin: 10px;
+  text-align: left;
   font-size: 25px;
 
 }
@@ -25,10 +27,6 @@
 
   &:hover {
     text-decoration: none;
-    border-color: rgba(0,0,0,0.9);
-    background-color: rgba(0,0,0,0.9);
-    color: seashell;
-    padding: 10px;
   }
 }
 

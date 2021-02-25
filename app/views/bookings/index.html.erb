@@ -1,35 +1,31 @@
-<div class="container">
+<div class="container text-center">
+  <h1 class="mt-4">My bookings</h1>
   <div class="d-flex justify-content-center">
-    <div class="row">
-      <div class="p-5 text-center titles-xl"><p class="title-xl"><%= link_to "List", automobiles_path %></p></div>
-      <div class="p-5 text-center titles-xl"><p class="title-xl">My bookings</p></div>
-      <div class="p-5 text-center titles-xl"><p class="title-xl"><%= link_to "Rent", new_automobile_path %></p></div>
-    </div>
-  </div>
-  <div class="d-flex justify-content-center">
-    <div class="row">
+    <div class="row my-3">
+      <div class="col-12">
       <% @bookings.each do |booking| %>
-      <div class="col-12 col-md-6 col-lg-3">
-        <div class="card-automobile">
-          <h2><%= link_to "#{booking.automobile.brand}, #{booking.automobile.model}", automobile_path(booking.automobile) %></h2>
-          <div class="card-automobile-infos">
-            <div>
-              <p> <%= "Rented from: #{booking.starting_date}" %></p>
-              <p> <%= "to: " %></p>
-              <p> <%= "Address: #{booking.automobile.address}" %></p>
-              <p><%= "#{booking.automobile.year} | #{booking.automobile.km} Km" %></p>
+        <div class="card-booking my-4">
+          <%= cl_image_tag booking.automobile.photo.key, height: 250 %>
+          <h2 class="py-3 bg-secondary"><%= booking.automobile.brand %> <%= booking.automobile.model %></h2>
+          <div class="card-booking-infos">
+            <div class="automobile-info">
+              <p>Year: <%= booking.automobile.year %></p>
+              <p><%= booking.automobile.km %> km</p>
             </div>
-            <div>
-              <h6 class="card-automobile-pricing"><h6><strong><%= "$#{booking.automobile.price} daily" %></strong></h6></h5>
+            <div class="booking-info">
+              <p>Booking status: <%= booking.status %></p>
+              <p>Paid: <%= booking.paid ? "Si" : "No" %></p>
+              <p>Total price: <%= booking.total_price %></p>
             </div>
-          </div>
-          <div id="line"></div>
-            <%= cl_image_tag booking.automobile.photo.key %>
+            <div class="fechas">
+              <p>From: <%= booking.starting_date %></p>
+              <p>To: <%= booking.finish_date %></p>
+            </div>  
           </div>
         </div>
         <% end %>
       </div>
-      
+    </div>
   </div>
 </div>
 

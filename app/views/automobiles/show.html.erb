@@ -1,39 +1,62 @@
 
 <div class="container">
-  <div class="card-trip card-trip-infos my-3 rounded">
-    <div class="show-header">
-      <div class="d-flex align-items-center" id="car-name">
-        <%= @automobile.model %> <%= @automobile.brand %>
+  <div class="row">
+    <div class="col-12">
+      <div class="card-trip card-trip-infos my-3 rounded">
+        <div class="show-header">
+          <div class="d-flex align-items-center" id="car-name">
+            <%= @automobile.model %> <%= @automobile.brand %>
+          </div>
+          <div class="d-flex align-items-center" id="owner-info">
+            <div id="owner-name"><%= @automobile.user.full_name %></div>
+            <% if @automobile.user.photo.attached? %>
+              <%= cl_image_tag @automobile.user.photo.key, class: "avatar-round" %>
+            <% else %>
+              <img src="app/assets/images/photo_placeholder.png" alt="user" class="avatar-round">
+            <% end %>
+          </div> 
+        </div>    
       </div>
-      <div class="d-flex align-items-center" id="owner-info">
-        <div id="owner-name"><%= @automobile.user.full_name %></div>
-        <% if @automobile.user.photo.attached? %>
-          <%= cl_image_tag @automobile.user.photo.key, class: "avatar-round" %>
-        <% else %>
-          <img src="app/assets/images/photo_placeholder.png" alt="user" class="avatar-round">
-        <% end %>
-      </div> 
-    </div>    
-  </div>
-   <!-- automobile photo -->
-  <div class="car-info">
-    <%= cl_image_tag @automobile.photo.key %>  
-    <%# <img src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8Y2FyfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">  %>
-    <!-- automobile info -->
-    <div id="car-info-text">
-      <div>
-        <h5>Model:</h5> <%= @automobile.model %>
-        <h5>Brand:</h5> <%= @automobile.brand %>
-        <h5>Category:</h5> <%= @automobile.category %>
-        <h5>Year:</h5> <%= @automobile.year %>
-        <h5>Km:</h5>  <%= @automobile.km %>
-        <h5>Daily price</h5>  U$S<%= @automobile.price %>     
-        <%# aca va el form con la info del auto %>
+      
+      <div class="car-info">
+        <%= cl_image_tag @automobile.photo.key, class: "car-img" %>        
+      </div>
+      <table class="table col-8 mt-3">
+        <thead>
+          <tr>
+            <th>Model:</th>
+            <th>Brand:</th>
+            <th>Category:</th>
+            <th>Year:</th>
+            <th>Km:</th>              
+          </tr>          
+        </thead>
+        <tbody>
+          <td><%= @automobile.model %></td>
+          <td><%= @automobile.brand %></td>
+          <td><%= @automobile.category %></td>
+          <td><%= @automobile.year %></td>
+          <td><%= @automobile.km %></td>            
+        </tbody>
+      </table>
+      <div class="book-card col-5 offset-8 p-3">
+        <div>
+          <%= simple_form_for [ @automobile, @booking ] do |f| %>
+            <h5>Choose when and just enjoy your car!</h5>
+            <div class="form">
+              <%= f.input :starting_date, as: :date, html5: true, error: 'Starting date is mandatory, please specify one', class: "form-date-input form-control" %>
+              <%= f.input :finish_date, as: :date, html5: true, error: 'F date is mandatory, please specify one', class: "form-date-input form-control" %>
+            </div>              
+            <div class="book-card-footer">
+              <h6><strong>Price/day:</strong> U$S<%= @automobile.price %></h6>
+              <%= f.submit "Pay now", class: "btn btn-primary" %>
+            </div> 
+          <% end %>
+        </div>
+      </div>
+      <div id="link-1">
+        <%= link_to "Back to cars", automobiles_path, class: "btn btn-primary" %>
       </div>
     </div>
-  </div>
-  <div class="mt-4 text-center">
-    <%= link_to "Back to cars", automobiles_path, class: "btn btn-primary" %> 
-    <%= link_to "Book now", new_automobile_booking_path(@automobile), class: "btn btn-primary" %>
   </div>
 </div>

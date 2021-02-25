@@ -1,42 +1,43 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag "car_logo.png" %>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon d-flex bd-highlight">
+  <div class="d-flex align-items-center">
+    <%= link_to root_path, class: "navbar-brand m-0 bd-highlight" do %>
+      <%= image_tag "car_logo.png", style: "zoom: 150%" %>
     <% end %>
-
+    <div id="navbar-title" class="p-2 bd-highlight">
+      <%= link_to "EasyTravel", root_path, class: "nav-link" %>
+    </div>
+  </div>
+  <!-- Para que es esto? -->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div id="navbar-title">
-    <%= link_to "EasyTravel", root_path, class: "nav-link" %>
-  </div>
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <% if current_user.automobiles.empty? %>
-        <li class="nav-item active">
+        <li class="nav-item active align-items-center">
           <%= link_to "Rent your car", new_automobile_path, class: "nav-link" %>
         </li>
-        <% else %>
-          <%# <%= link_to "See you cars", new_automobile_path, class: "nav-link" %>
-        <% end %>
-        <li class="nav-item dropdown">
-          <% if current_user.photo.attached? %>
-            <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <% else %>
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <% end %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "My bookings", bookings_path, class: "dropdown-item" %>
-            <%= link_to "My cars", "#", class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+        <li class="nav-item dropdown ms-auto pt-3 px-2 bd-highlight align-items-center">
+          <div class="nav-item dropdown" id="dropdown-section">
+            <% if current_user.photo.attached? %>
+              <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% else %>
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
+            <div style= "height: 20px; width: 100%"></div>
+            <div class="dropdown-menu dropdown-menu-right m-0" aria-labelledby="navbarDropdown">
+              <%= link_to "Bookings", bookings_path, class: "dropdown-item" %>
+              <%= link_to "Cars", "#", class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            </div>
           </div>
         </li>
       <% else %>
         <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
+          <%= link_to "Rent your car", new_user_registration_path, class: "nav-link" %>
+          <%= link_to "Login", new_user_session_path, class: "simple-hover" %>
+          <%= link_to "Sign up", new_user_registration_path, class: "simple-hover" %>
         </li>
       <% end %>
     </ul>
