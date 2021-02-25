@@ -1,0 +1,16 @@
+<%= link_to automobile_path(automobile) do %>
+  <%= cl_image_tag automobile.photo.key, crop: :fill %>
+  <div class="popup-infos">
+    <h2 class="text-center"><%= automobile.brand %> <%= automobile.model %></h2>
+    <div class="popup-info">
+      <h3>Only for $<%= automobile.price %>/day</h3>
+      <div>
+        <p><%= automobile.km %>km</p>
+        <p>Model: <%= automobile.year %></p>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+
+
