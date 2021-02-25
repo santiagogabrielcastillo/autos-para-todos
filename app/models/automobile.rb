@@ -8,4 +8,11 @@ class Automobile < ApplicationRecord
 
   belongs_to :user
   has_many :reviews, as: :reviewable
+
+  include PgSearch::Model
+  pg_search_scope :search_by_automobiles_columns,
+                  against: %i[model brand year km],
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 end
