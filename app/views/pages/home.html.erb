@@ -2,28 +2,30 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80);">
   <div class="container-search">
     <div class="search">
-      <h1>Encontrá tu auto ideal</h1>
-      <p>¡Descubrí cómo alquilar un auto de la forma más fácil y rápida!</p>
+      <h1>Drive anywhere, at the best price</h1>
+      <p>Compare rental car deals to find the right one.</p>
       <div class="search-form">
-        <div class="row g-3">
-          <div class="col">
-            <label for="desde" class="form-label">Desde:</label>
-            <input type="date" class="form-control" id="desde" name="desde" aria-label="Desde">
+        <form class="form-inline">
+          <div class="col-md-2 form-group">
+            <label for="from" class="form-label">From</label>
+            <input type="date" id="from" name="from" aria-label="From" class="form-control" />
           </div>
-          <div class="col">
-            <label for="hasta" class="form-label">Hasta:</label>
-            <input type="date" class="form-control" id="hasta" name="hasta" aria-label="Hasta">
+          <div class="col-md-2 form-group">
+            <label for="to" class="form-label">To</label>
+            <input type="date" class="form-control" id="to" name="to" aria-label="To">
           </div>
-        </div>
-        <div class="mb-3">
-          <select class="form-select form-select-sm w-100 mt-3 mb-1" aria-label="Default select example" id="select-category">
-            <option selected>Selecciona una categoría</option>
-            <option value="1">Auto</option>
-            <option value="2">Camioneta</option>
-            <option value="3">Moto</option>
-          </select>
-        </div>
-        <%= link_to 'Buscar', automobiles_path, class: 'btn btn-flat' %>
+          <div class="col-md-2 form-group">
+            <select class="form-select form-select-sm" aria-label="Default select example" id="select-category">
+              <option selected>Select a category</option>
+              <option value="1">Car</option>
+              <option value="2">Truck</option>
+              <option value="3">Motorcycle</option>
+            </select>
+          </div>
+          <div class="col-md-2 form-group align-bottom">
+            <%= link_to 'Search', automobiles_path, class: 'btn btn-flat' %>
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -31,8 +33,8 @@
 
 <!-- CARDS -->
 <div class="container">
-  <h1 class="mt-4 text-center">Mirá las mejores opciones que tenemos para vos</h1>
-  <p class="text-center mt-2 mb-4">Más de 1.000 evaluaciones de usuarios, con una valoración media de 4.5 de 5 estrellas.</p>
+  <h1 class="mt-4 text-center">Explore the most popular cars</h1>
+  <p class="text-center mt-2 mb-4">Over 1,000 user reviews, with an average rating of 4.8 out of 5 stars.</p>
   <div class="row">
     <% @automobiles.each do |automobile| %>
     <div class="col-12 col-md-6 col-lg-4">
@@ -43,7 +45,7 @@
             <%= link_to automobile_path(automobile) do %>
             <h2><%= automobile.brand %> <%= automobile.model %></h2>
             <% end %>
-            <p>Descripción corrrespondiente al vehículo número 1</p>
+            <p class="pt-2"><%= "#{automobile.year} | #{automobile.km} Km" %></p>
           </div>
           <h2 class="card-trip-pricing">$<%= automobile.price %></h2>
           <%= cl_image_tag automobile.user.photo.key, class: 'card-trip-user avatar-bordered' %>
