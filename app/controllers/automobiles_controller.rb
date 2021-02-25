@@ -1,7 +1,19 @@
 class AutomobilesController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
   def index
-    @automobiles = Automobile.all
+    if params[:query].present?
+      @automobiles = Automobile.search_by_automobiles_columns(params[:query])
+    else
+      @automobiles = Automobile.all
+    end
+
+    @markers = @automobiles.geocoded.map do |automobile|
+      {
+        lat: automobile.latitude,
+        lng: automobile.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { automobile: automobile })
+      }
+    end
   end
 
   def show
