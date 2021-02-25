@@ -37,18 +37,18 @@
   vertical-align: end;
 }
 
-.btn-flat {
-  color: white;
+.btn-yellow {
+  color: rgb(0, 0, 0);
   padding: 8px 24px;
-  border-radius: 4px;
-  background: #1EDD88;
+  border-radius: 5px;
+  background: rgb(255, 238, 0);
   transition: background 0.3s ease;
   margin-top: 20px;
-}
 
-.btn-flat:hover {
-  background: #1BCB7F;
-  color: white;
+  &:hover {
+    background: rgb(241, 239, 99);
+      color: rgb(0, 0, 0);
+    }
 }
 
 .col-md-2 .form-group .align-bottom {
