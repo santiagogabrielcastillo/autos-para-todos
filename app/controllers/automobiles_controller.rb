@@ -1,13 +1,20 @@
 class AutomobilesController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
   def index
-    if params[:query].present?
-      @automobiles = Automobile.search_by_automobiles_columns(params[:query])
+    if params[:location_query].present? || params[:price_query].present? || params[:km_query].present? || params[:year_query].present? || params[:model_query].present? || params[:brand_query].present?
+      @automobiles = Automobile.geocoded.search({
+        location: params[:location_query],
+        price: params[:price_query],
+        km: params[:km_query],
+        year: params[:year_query],
+        model: params[:model_query],
+        brand: params[:brand_query]
+        })
     else
-      @automobiles = Automobile.all
+      @automobiles = Automobile.geocoded
     end
 
-    @markers = @automobiles.geocoded.map do |automobile|
+    @markers = @automobiles.map do |automobile|
       {
         lat: automobile.latitude,
         lng: automobile.longitude,
