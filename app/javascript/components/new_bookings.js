@@ -1,9 +1,6 @@
-const startDate = document.getElementById("start_date");
-const finishDate = document.getElementById("finish_date");
-const automobilePrice = document.getElementById("total_price");
-const price = automobilePrice.dataset.price;
 
-const finishDateChange = () => {
+
+const finishDateChange = (finishDate, startDate, automobilePrice) => {
   finishDate.addEventListener('input', (event) => {
     // si diffDates < 0, sacar fecha de fin y reiniciar costo
     const diffDates = (new Date(finishDate.value) - new Date(startDate.value));
@@ -19,7 +16,7 @@ const finishDateChange = () => {
   });
 };
 
-const startDateChange = () => {
+const startDateChange = (finishDate, startDate, automobilePrice) => {
   startDate.addEventListener('input', (event) => {
     if (finishDate.value) {
       const diffDates = (new Date(finishDate.value) - new Date(startDate.value));
@@ -42,9 +39,16 @@ const startDateChange = () => {
 
 
 const calculateDates = () => {
-  automobilePrice.innerText = `$${price}`;
-  finishDateChange();
-  startDateChange();
+  const automobilePrice = document.getElementById("total_price");
+  const startDate = document.getElementById("start_date");
+  const finishDate = document.getElementById("finish_date");
+  
+  if (automobilePrice) {
+    const price = automobilePrice.dataset.price;
+    automobilePrice.innerText = `$${price}`;
+    finishDateChange(finishDate, startDate, automobilePrice);
+    startDateChange(finishDate, startDate, automobilePrice);
+  };
 };
 
 export { calculateDates };
