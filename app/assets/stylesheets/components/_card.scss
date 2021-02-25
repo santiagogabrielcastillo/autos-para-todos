@@ -3,6 +3,7 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin-bottom: 15px;
+  border-radius: 5px;
 }
 
 .card-trip > img {
@@ -23,7 +24,6 @@
   margin: 0;
 }
 
-
 .card-trip .card-trip-infos {
   padding: 16px;
   display: flex;
@@ -34,10 +34,26 @@
 }
 
 .card-trip-infos .card-trip-user {
-  position: absolute;
   right: 16px;
   top: -20px;
   height: 40px;
   width: 40px;
+}
+
+.book-card {
+  background-color: white;
+  margin-top: -150px;
+  border: 1px black;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 400px;
+  height: auto;
+}
+
+.book-card-footer {
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
