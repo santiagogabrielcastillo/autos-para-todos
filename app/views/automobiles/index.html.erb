@@ -16,7 +16,7 @@
           <div>
             <h5 class="card-automobile-pricing"><%= "$#{automobile.price} daily" %></h5>
           </div>
-          <%= cl_image_tag automobile.user.photo.key, class: "card-automobile-user avatar-bordered" %>
+          <%= cl_image_tag automobile.user.photo.key, link_to "", automobile_path(automobile)class: "card-automobile-user avatar-bordered" %>
         </div>
       </div>
     </div>

@@ -1,15 +1,20 @@
 .card-automobile {
-  height: 350px;
+  height: 300px;
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.4);
   margin-bottom: 30px;
+  text-align: left;
 }
 
 .card-automobile > img {
-  height: 250px;
   width: 100%;
   object-fit: cover;
+}
+.card-automobile h2 {
+  margin-top: 3px;
+  font-size: 25px;
+
 }
 
 .card-automobile h2 a {
@@ -48,4 +53,15 @@
   top: -36px;
   height: 40px;
   width: 40px;
+}
+
+.card-automobile-pricing {
+  display: flex;
+  justify-self: end;
+}
+
+#line {
+  height: 5px;
+  background-color: black;
+  padding: 0px 10px;
 }
