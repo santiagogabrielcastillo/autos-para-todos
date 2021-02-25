@@ -1,21 +1,21 @@
-<div class="container text-center">
-  <h1 class="mt-4">My bookings</h1>
+<div class="container">
+  <div class="p-5 text-center titles-xl"><p class="title-xl">My bookings</p></div>
   <div class="d-flex justify-content-center">
     <div class="row">
     <% @bookings.each do |booking| %>
     <div class="col-12 col-md-6 col-lg-4">
       <div class="card-automobile">
-        <%= cl_image_tag booking.automobile.photo.key %>
-        <h2><%= link_to "#{booking.automobile.brand}, #{booking.automobile.model}", automobile_path(booking.automobile) %></h2>
+        <h2  class="m-1"><%= link_to "#{booking.automobile.brand}, #{booking.automobile.model}", automobile_path(booking.automobile) %></h2>
         <div class="card-automobile-infos">
           <div>
+            <p> <%= "#{booking.automobile.address}" %></p>
             <p><%= "#{booking.automobile.year} | #{booking.automobile.km} Km" %></p>
           </div>
           <div>
-            <h5 class="card-automobile-pricing"><%= "$#{booking.automobile.price} daily" %></h5>
+            <h5 class="card-automobile-pricing"><h6><strong><%= "$#{booking.automobile.price} daily" %></strong></h6></h5>
           </div>
-          <%= cl_image_tag automobile.user.photo.key, class: "card-automobile-user avatar-bordered" %>
         </div>
+         <%= cl_image_tag booking.automobile.photo.key %>
       </div>
     </div>
     <% end %>
