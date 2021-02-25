@@ -5,9 +5,10 @@
   justify-content: flex-start;
   background-color: white;
   border-radius: 5px;
-  // padding: 20px;
+  padding: 20px;
   
 }
+.show-header {
   display: flex;
   justify-content: space-between;
   height: 30px;
@@ -20,6 +21,7 @@
 }
 
 #car-info-text h5 {
+  margin-top: 7px;
   opacity: 0.7;
 
 }
@@ -38,14 +40,3 @@
 #owner-name {
   margin-right: 5px;
 }
-
-.car-img {
-  border-radius: 5px;
-  width: 100%;
-  object-fit: scale-down;
-}
-
-.form-date-input {
-  width: 135px;
-}
-
