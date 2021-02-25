@@ -9,14 +9,14 @@
   padding: 35px 50px;
   position: absolute;
   bottom: 0;
-  color: rgb(122, 122, 122);
+  color: rgba(255, 252, 60, 0.4);
 }
 .footer-links {
   display: flex;
   align-items: center;
 }
 .footer-links a {
-  color: rgb(255, 255, 255);
+  color: rgb(255, 252, 60);
   opacity: 0.4;
   text-decoration: none;
   font-size: 14px;
@@ -27,7 +27,7 @@
 }
 
 .footer-social-media a {
-  color: rgb(255, 255, 255);
+  color: rgb(255, 252, 60);
   opacity: 0.4;
   text-decoration: none;
   font-size: 24px;

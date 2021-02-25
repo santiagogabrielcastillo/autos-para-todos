@@ -36,10 +36,8 @@
       <% else %>
         <li class="nav-item">
           <%= link_to "Rent your car", new_user_registration_path, class: "nav-link" %>
-          <div class="container-register m-0 p-0">
-          <%= link_to "Login", new_user_session_path, class: "btn btn-light" %>
-          <%= link_to "Sign up", new_user_registration_path, class: "btn btn-light" %>
-          </div>
+          <%= link_to "Login", new_user_session_path, class: "simple-hover" %>
+          <%= link_to "Sign up", new_user_registration_path, class: "simple-hover" %>
         </li>
       <% end %>
     </ul>

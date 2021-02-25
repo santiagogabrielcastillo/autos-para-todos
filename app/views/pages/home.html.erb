@@ -6,15 +6,15 @@
       <p>Compare rental car deals to find the right one!</p>
       <div class="search-form">
         <form class="form">
-          <div class="col-md-2 form-group">
+          <div class="col-2 form-group">
             <label for="from" class="form-label">From</label>
             <input type="date" id="from" name="from" aria-label="From" class="form-control" />
           </div>
-          <div class="col-md-2 form-group">
+          <div class="col-2 form-group">
             <label for="to" class="form-label">To</label>
             <input type="date" class="form-control" id="to" name="to" aria-label="To">
           </div>
-          <div class="col-md-2 form-group">
+          <div class="col-2 form-group">
             <select class="form-select form-select-sm" aria-label="Default select example" id="select-category">
               <option selected>Select a category</option>
               <option value="1">Car</option>
@@ -22,7 +22,7 @@
               <option value="3">Motorcycle</option>
             </select>
           </div>
-          <div class="col-md-2 form-group align-bottom">
+          <div class="col-2 form-group align-bottom">
             <%= link_to 'Search', automobiles_path, class: 'btn btn-yellow' %>
           </div>
         </form>
