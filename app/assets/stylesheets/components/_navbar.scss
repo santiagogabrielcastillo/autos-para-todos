@@ -6,6 +6,7 @@
   position: fixed;
   width: 100%;
   top: 0;
+  margin-bottom: 5px;
   z-index: 9999;
 }
 
@@ -40,7 +41,7 @@
   margin: 0 10px;
   color: rgb(0, 0, 0);
   border-radius: 5px;
-  background-color: rgb(241, 239, 99);
+  background-color: #FFD100;
 
   &:hover {
     background-color: rgb(246, 245, 152);  
