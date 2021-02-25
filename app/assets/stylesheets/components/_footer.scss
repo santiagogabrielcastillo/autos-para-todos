@@ -1,22 +1,22 @@
 .footer {
-  background: #F4F4F4;
+  background: #000000;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 2.5rem;
-  margin-top: 10px;
-  padding: 0px 50px;
+  margin-top: 15px;
+  padding: 35px 50px;
   position: absolute;
   bottom: 0;
-  color: rgba(0,0,0,0.3);
+  color: rgb(122, 122, 122);
 }
 .footer-links {
   display: flex;
   align-items: center;
 }
 .footer-links a {
-  color: black;
+  color: rgb(255, 255, 255);
   opacity: 0.4;
   text-decoration: none;
   font-size: 14px;
@@ -27,7 +27,7 @@
 }
 
 .footer-social-media a {
-  color: black;
+  color: rgb(255, 255, 255);
   opacity: 0.4;
   text-decoration: none;
   font-size: 24px;

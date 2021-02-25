@@ -7,6 +7,7 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require("lgolia/v3/algoliasearch.min")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -27,8 +28,13 @@ import "bootstrap";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+import { dropdownMenuAppears } from '../components/hover_dropdown_icon'
+import { search } from "../components/search_bar"
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  // if (user_signed_in?) {
+    dropdownMenuAppears();
+  // }
 });
