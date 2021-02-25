@@ -1,31 +1,25 @@
 <div class="container text-center">
   <h1 class="mt-4">My bookings</h1>
   <div class="d-flex justify-content-center">
-    <div class="row my-3">
-      <div class="col-12">
-      <% @bookings.each do |booking| %>
-        <div class="card-booking my-4">
-          <%= cl_image_tag booking.automobile.photo.key, height: 250 %>
-          <h2 class="py-3 bg-secondary"><%= booking.automobile.brand %> <%= booking.automobile.model %></h2>
-          <div class="card-booking-infos">
-            <div class="automobile-info">
-              <p>Year: <%= booking.automobile.year %></p>
-              <p><%= booking.automobile.km %> km</p>
-            </div>
-            <div class="booking-info">
-              <p>Booking status: <%= booking.status %></p>
-              <p>Paid: <%= booking.paid ? "Si" : "No" %></p>
-              <p>Total price: <%= booking.total_price %></p>
-            </div>
-            <div class="fechas">
-              <p>From: <%= booking.starting_date %></p>
-              <p>To: <%= booking.finish_date %></p>
-            </div>  
+    <div class="row">
+    <% @bookings.each do |booking| %>
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card-automobile">
+        <%= cl_image_tag booking.automobile.photo.key %>
+        <h2><%= link_to "#{booking.automobile.brand}, #{booking.automobile.model}", automobile_path(booking.automobile) %></h2>
+        <div class="card-automobile-infos">
+          <div>
+            <p><%= "#{booking.automobile.year} | #{booking.automobile.km} Km" %></p>
           </div>
+          <div>
+            <h5 class="card-automobile-pricing"><%= "$#{booking.automobile.price} daily" %></h5>
+          </div>
+          <%= cl_image_tag automobile.user.photo.key, class: "card-automobile-user avatar-bordered" %>
         </div>
-        <% end %>
       </div>
     </div>
+    <% end %>
+  </div>
   </div>
 </div>
 
