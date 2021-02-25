@@ -5,6 +5,7 @@ class AutomobilesController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
     @automobile = Automobile.find(params[:id])
   end
 
