@@ -43,7 +43,7 @@ automobile = Automobile.new(
   price: 2000,
   year: 2016,
   km: 30000,
-  address: "Av. Pres. Roque Sáenz Peña 933, C1035 AAE, Buenos Aires",
+  address: "Niceto Vega 5510, Buenos Aires, Argentina",
   user_id: User.first.id
 )
 file = URI.open('https://cdn.motor1.com/images/mgl/BoB2M/s1/2020-mercedes-amg-gt-black-series-rendering.jpg')
@@ -58,7 +58,7 @@ automobile = Automobile.new(
   price: 1000,
   year: 2019,
   km: 18000,
-  address: "Avenida Alvear 1661, Buenos Aires, Argentina, C1014AAD",
+  address: "Avenida Alvear 1661, Buenos Aires, Argentina",
   user_id: User.second.id
 )
 file = URI.open('https://s3-eu-west-1.amazonaws.com/crash.net/visordown.com/field/image/BMW%20HP4%20Race%202017.jpg')
@@ -73,7 +73,7 @@ automobile = Automobile.new(
   price: 5000,
   year: 2020,
   km: 1000,
-  address: "Mariscal Antonio José de Sucre 1683-1743, Buenos Aires",
+  address: "Mariscal Antonio José de Sucre 1683, Buenos Aires",
   user_id: User.second.id
 )
 file = URI.open('https://k.uecdn.es/html5/html5lib/v2.73.3_ue_1/modules/KalturaSupport/thumbnail.php/p/110/uiconf_id/14969339/entry_id/0_44j7x3m8/height/407?"')

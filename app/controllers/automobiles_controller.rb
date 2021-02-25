@@ -6,7 +6,8 @@ class AutomobilesController < ApplicationController
     @markers = @automobiles.geocoded.map do |automobile|
       {
         lat: automobile.latitude,
-        lng: automobile.longitude
+        lng: automobile.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { automobile: automobile })
       }
     end
   end

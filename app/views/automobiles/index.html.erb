@@ -4,12 +4,14 @@
   <h1 class="mt-4 text-left">The cars you always wanted, at the best price</h1>
   <p class="text-left mt-2 mb-4">Over 1,000 user reviews, with an average rating of 4.5 out of 5 stars.</p>
   <hr>
-  <div id="map"
-     style="width: 80%; height: 600px;"
+  <div>
+    <h3 class="text-center my-3">Search for cars near you!</h3>
+    <div id="map"
+     style="width: 80%; height: 400px;"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
   </div>
-  <br>
   <hr>
   <div class="row">
     <% @automobiles.each do |automobile| %>
