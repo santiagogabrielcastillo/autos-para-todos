@@ -1,6 +1,7 @@
 CATEGORIES = ["Automóvil", "Motocicleta", "Camioneta", "Camión"]
 
 class Automobile < ApplicationRecord
+  validates :brand, :model, :year, :category, :price, :address, :km, :photo, presence: true
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 
