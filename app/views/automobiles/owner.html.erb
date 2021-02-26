@@ -26,6 +26,7 @@
                 </div>
                 <div class="fechas">
                   <%= link_to "Edit", edit_automobile_path(automobile), class: 'btn btn-primary' %>
+                  <%= link_to "Delete", automobile_path(automobile), class: 'btn btn-primary', method: :delete, data: { confirm: "Are you sure?" } %>
                 </div>  
               </div>
             </div>
