@@ -3,20 +3,27 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.4);
-  margin-bottom: 15px;
+  margin-bottom: 30px;
+  text-align: left;
 }
 
 .card-automobile > img {
-  height: 200px;
+  height: 150px;
   width: 100%;
   object-fit: cover;
+}
+.card-automobile h2 {
+  margin: 10px;
+  text-align: left;
+  font-size: 25px;
+
 }
 
 .card-automobile h2 a {
   color: black;
   font-size: 17px;
   font-weight: bold;
-  margin-left: 35px;
+  margin-left: 12px;
 
   &:hover {
     text-decoration: none;
@@ -46,6 +53,18 @@
   width: 40px;
 }
 
+.card-automobile-pricing {
+  display: flex;
+  justify-self: end;
+}
+
+#line {
+  height: 5px;
+  background-color: black;
+  padding: 0px 10px;
+}
+
 #map {
   margin: 0 auto;
 }
+
