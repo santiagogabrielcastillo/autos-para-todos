@@ -1,31 +1,35 @@
 <!-- CARDS -->
 <div class="d-flex container-index w-100 p-3">
   <div class="container">
-    <h3 class="mt-4 text-left">Compare rental car deals to find the right one!</h3>
+    <h3 class="text-left">Compare rental car deals to find the right one!</h3>
     <div class="search-bar mb-4 text-center">
       <%= form_tag automobiles_path, method: :get, class: 'row col-12 ps-2 text-center' do %>
         <%= text_field_tag :location_query, params[:location_query], id: "location", class: "form-control col-6 col-md-3", placeholder: "Location" %>
         <%= text_field_tag :price_query, params[:price_query], class: "form-control col-6 col-md-3", placeholder: "Price" %>
         <%= text_field_tag :km_query, params[:km_query], class: "form-control col-6 col-md-3", placeholder: "Km" %>
         <%= text_field_tag :model_brand_query, params[:model_brand_query], class: "form-control col-6 col-md-3", placeholder: "Model/Brand" %>
-        <%= submit_tag "Search", class: "mt-2 col-12 fas fa-search" %>
+        <%= submit_tag "Search", class: "mt-2 col-12 fas fa-search btn btn-primary" %>
       <% end %>
     </div>
+    <div class="row">
       <% @automobiles.each do |automobile| %>
-        <div class="col-12 col-lg-6">
-          <div class="card-automobile">
-            <%= cl_image_tag automobile.photo.key %>
-            <h2><%= link_to "#{automobile.brand}, #{automobile.model}", automobile_path(automobile) %></h2>
-            <div class="card-automobile-infos">
-              <p><%= "#{automobile.year} | #{automobile.km} Km" %></p>
+      <div class="col-12 col-lg-6">
+        <div class="card-trip">     
+          <%= cl_image_tag automobile.photo.key %>
+          <div class="card-trip-infos">
+            <div>
+              <%= link_to automobile_path(automobile) do %>
+              <h2><%= automobile.brand %> <%= automobile.model %></h2>
+              <% end %>
+              <p class="pt-2"><%= "#{automobile.year} | #{automobile.km} Km" %></p>
             </div>
-            <h5 class="card-automobile-pricing"><%= "$#{automobile.price} daily" %></h5>
-            <%= cl_image_tag automobile.user.photo.key, class: "card-automobile-user avatar-bordered" %>
+            <h2 class="card-trip-pricing">$<%= "#{automobile.price} daily"%></h2>
+            <%= cl_image_tag automobile.user.photo.key, class: 'card-trip-user avatar-bordered' %>
           </div>
         </div>
-      <% end %>
+      </div>
+    <% end %>
+    </div>
   </div>
-  <div id="map" class="col-6" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV["MAPBOX_API_KEY"] %>"> </div>
-</div>
-</div>
+  <div id="map" class="col-6" style="position: sticky; top: 0; height: 100vh;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV["MAPBOX_API_KEY"] %>"> </div>
 </div>
