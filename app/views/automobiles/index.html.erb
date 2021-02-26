@@ -1,20 +1,18 @@
 <!-- CARDS -->
-<div class="d-flex container-search-cards" style="margin-top: 100px">
+<div class="d-flex container-index w-100 p-3">
   <div class="container">
     <h3 class="mt-4 text-left">Compare rental car deals to find the right one!</h3>
-    <div class="search-bar mb-4">
-      <%= form_tag automobiles_path, method: :get, class: 'row col-12' do %>
-        <%= text_field_tag :location_query, params[:location_query], class: "form-control col-6 col-md-4", placeholder: "Avenida del Libertador 500, Buenos Aires" %>
-        <%= text_field_tag :price_query, params[:price_query], class: "form-control col-6 col-md-4", placeholder: "$1000" %>
-        <%= text_field_tag :km_query, params[:km_query], class: "form-control col-6 col-md-4", placeholder: "10000" %>
-        <%= text_field_tag :year_query, params[:year_query], class: "form-control col-6 col-md-4", placeholder: "2000" %>
-        <%= text_field_tag :model_query, params[:model_query], class: "form-control col-6 col-md-4", placeholder: "HP4 Race" %>
-        <%= text_field_tag :brand_query, params[:brand_query], class: "form-control col-6 col-md-4", placeholder: "BMW" %>
-        <%= submit_tag "Search", class: "col-12 fas fa-search" %>
+    <div class="search-bar mb-4 text-center">
+      <%= form_tag automobiles_path, method: :get, class: 'row col-12 ps-2 text-center' do %>
+        <%= text_field_tag :location_query, params[:location_query], class: "form-control col-6 col-md-3", placeholder: "Location" %>
+        <%= text_field_tag :price_query, params[:price_query], class: "form-control col-6 col-md-3", placeholder: "Price" %>
+        <%= text_field_tag :km_query, params[:km_query], class: "form-control col-6 col-md-3", placeholder: "Km" %>
+        <%= text_field_tag :model_brand_query, params[:model_brand_query], class: "form-control col-6 col-md-3", placeholder: "Model/Brand" %>
+        <%= submit_tag "Search", class: "mt-2 col-12 fas fa-search" %>
       <% end %>
     </div>
       <% @automobiles.each do |automobile| %>
-        <div class="col-12">
+        <div class="col-12 col-lg-6">
           <div class="card-automobile">
             <%= cl_image_tag automobile.photo.key %>
             <h2><%= link_to "#{automobile.brand}, #{automobile.model}", automobile_path(automobile) %></h2>
@@ -32,7 +30,6 @@
   </div>
   </div>
   <div id="map" class="col-6" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV["MAPBOX_API_KEY"] %>"> </div>
-</div>
 </div>
 </div>
 </div>
