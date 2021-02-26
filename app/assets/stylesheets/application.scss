@@ -7,6 +7,7 @@
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "flatpickr/dist/flatpickr";
 @import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder';
 
 // Your CSS partials
@@ -21,5 +22,6 @@
 }
 
 .content-wrap {
-  padding-bottom: 2.5rem;    /* Footer height */
+  margin-top: 110px;
+  padding-bottom: 3.8rem;    /* Footer height */
 }

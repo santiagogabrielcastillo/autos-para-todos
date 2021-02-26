@@ -1,4 +1,5 @@
 <div class="container">
+<h1 class="text-center my-3">Create a car!</h1>
 <div>
     <%= simple_form_for @automobile do |f| %>
     <%= f.input :model %>
@@ -9,8 +10,8 @@
     <%= f.input :address %>
     <%= f.input :category, collection: CATEGORIES %>
     <%= f.input :photo, as: :file %>
-    <%= f.button :submit %>
+    <%= f.button :submit, class: 'btn btn-primary' %>
   <% end %>
 </div>
-<%= link_to "Go back", root_path, class: "btn btn-primary" %>
+<%= link_to "Go back", root_path, class: "btn btn-primary my-3" %>
 </div>

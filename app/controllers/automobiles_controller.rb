@@ -24,6 +24,7 @@ class AutomobilesController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
     @automobile = Automobile.find(params[:id])
   end
 
@@ -35,7 +36,7 @@ class AutomobilesController < ApplicationController
     @automobile = Automobile.new(automobile_params)
     @automobile.user = current_user
     if @automobile.save
-      redirect_to automobile_path(@automobile)
+      redirect_to owner_path
     else
       render :new
     end
@@ -47,8 +48,15 @@ class AutomobilesController < ApplicationController
 
   def update
     @automobile = Automobile.find(params[:id])
-    @automobile.update(automobile_params)
-    redirect_to automobile_path(@automobile)
+    if @automobile.update(automobile_params)
+      redirect_to automobile_path(@automobile)
+    else
+      render :edit
+    end
+  end
+
+  def owner
+    @automobiles = Automobile.where(user_id: current_user.id)
   end
 
   private
