@@ -41,8 +41,11 @@ class AutomobilesController < ApplicationController
 
   def update
     @automobile = Automobile.find(params[:id])
-    @automobile.update(automobile_params)
-    redirect_to automobile_path(@automobile)
+    if @automobile.update(automobile_params)
+      redirect_to automobile_path(@automobile)
+    else
+      render :edit
+    end
   end
 
   def owner

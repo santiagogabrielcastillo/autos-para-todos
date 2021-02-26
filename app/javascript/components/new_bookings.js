@@ -37,6 +37,14 @@ const startDateChange = (finishDate, startDate, automobilePrice, price) => {
   });
 };
 
+const sendTotalPrice = (price) => {
+  const submitButton = document.getElementById("new_booking_submit");
+  const totalPriceInput = document.getElementById("form_total_price")
+  submitButton.addEventListener('click', (event) => {
+    totalPriceInput.value = price;
+  });
+};
+
 
 const calculateDates = () => {
   const automobilePrice = document.getElementById("total_price");
@@ -48,6 +56,7 @@ const calculateDates = () => {
     automobilePrice.innerText = `$${price}`;
     finishDateChange(finishDate, startDate, automobilePrice, price);
     startDateChange(finishDate, startDate, automobilePrice, price);
+    sendTotalPrice(price);
   };
 };
 
