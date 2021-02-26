@@ -57,9 +57,16 @@ class AutomobilesController < ApplicationController
     @automobiles = Automobile.where(user_id: current_user.id)
   end
 
+  def destroy
+    @automobile = Automobile.find(params[:id])
+    @automobile.destroy
+
+    redirect_to owner_path
+  end
+
   private
 
   def automobile_params
-    params.require(:automobile).permit(:brand, :model, :year, :km, :category, :price, :photo)
+    params.require(:automobile).permit(:brand, :model, :year, :km, :category, :price, :photo, :address)
   end
 end
