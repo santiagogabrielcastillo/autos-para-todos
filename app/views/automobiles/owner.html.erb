@@ -9,6 +9,9 @@
           <%= link_to "Create your first car", new_automobile_path, class: 'btn btn-primary' %>
         </div>
         <% else %>
+          <div class="col-12">
+            <%= link_to "Add a new car", new_automobile_path, class: 'btn btn-primary mt-3' %>
+          </div>
           <% @automobiles.each do |automobile| %>
             <div class="card-booking my-4">
               <%= cl_image_tag automobile.photo.key, height: 250 %>
@@ -30,9 +33,6 @@
             <% end %>
           </div>
         <% end %>
-        <div class="col-12">
-          <%= link_to "Add a new car", new_automobile_path, class: 'btn btn-primary mt-3' %>
-        </div>
     </div>
   </div>
 </div>
