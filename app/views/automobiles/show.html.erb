@@ -46,10 +46,11 @@
             <div class="form">
               <%= f.input :starting_date, as: :string, required: true, error: 'Starting date is mandatory, please specify one', input_html: {class: "datepicker", id: "start_date"} %>
               <%= f.input :finish_date, as: :string, required: true, error: 'Finishing date is mandatory, please specify one', input_html: {class: "datepicker", id: "finish_date"} %>
+              <%= f.input :total_price, :as => :hidden, :input_html => { :value => "", id: "form_total_price" } %> 
             </div>              
             <div class="book-card-footer">
               <h6><strong>Price/day:</strong></h6><span id="total_price" data-price="<%= @automobile.price %>"><%= @automobile.price %></span>
-              <%= f.submit "Pay now", class: "btn btn-primary" %>
+              <%= f.submit "Pay now", class: "btn btn-primary", id: "new_booking_submit" %>
             </div> 
           <% end %>
         </div>
