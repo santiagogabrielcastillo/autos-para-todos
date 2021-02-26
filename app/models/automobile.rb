@@ -9,6 +9,7 @@ class Automobile < ApplicationRecord
 
   belongs_to :user
   has_many :reviews, as: :reviewable
+  has_many :bookings, dependent: :destroy
 
   include PgSearch::Model
   pg_search_scope :search_by_automobiles_columns,
