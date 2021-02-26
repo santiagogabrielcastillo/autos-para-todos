@@ -46,9 +46,13 @@
   width: 40px;
 }
 
-#map {
+.mapboxgl-canvas {
   height: 100vh;
   position: sticky;
   top: 0;
   display: block;
+}
+
+.d-flex .container-search-cards {
+  height: 100vh;
 }
